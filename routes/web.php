@@ -15,13 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+use App\Category;
+use App\Product;
+Route::get('/list-cate', function(){
+	$product = Product::find(20);
 
-Route::get('/hello', function(){
-	$user = [
-		'name' => "thienth",
-		"age" => 28,
-		"hometown" => "nam dinh"
-	];
+	dd($product->category->cate_name);
 
-	return view('hello', ['test' => $user]);
 });
