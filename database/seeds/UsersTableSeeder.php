@@ -15,18 +15,21 @@ class UsersTableSeeder extends Seeder
     	$users = [
             [
             	'name' => 'thienth',
+            	'avatar' => '',
             	'email' => 'admin@gmail.com',
             	'password' => Hash::make('123456'),
             	'role' => 900
             ],
             [
             	'name' => 'chungcc',
+            	'avatar' => '',
             	'email' => 'moderator@gmail.com',
             	'password' => Hash::make('123456'),
             	'role' => 700
             ],
             [
             	'name' => 'member',
+            	'avatar' => '',
             	'email' => 'member@gmail.com',
             	'password' => Hash::make('123456'),
             	'role' => 1
