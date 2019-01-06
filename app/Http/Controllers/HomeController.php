@@ -12,12 +12,10 @@ class HomeController extends Controller
 	public function index(){
 		$menus = Category::take(4)->get();
 		$products = Product::take(12)->get();
-		// return view('homepage', compact('products', 'menus'));
-		return view('test-layout');
+		return view('homepage', compact('products', 'menus'));
 	}
 
 	public function listProducts($cateId){
-		return view('test-layout2');
 		// find object by cate id
 		$cate = Category::find($cateId);
 		if($cate == null){

@@ -1,3 +1,6 @@
+@extends('layouts.client-master')
+@section('title', "Trang chủ")
+@section('content')
 <div class="homepage-slider">
     <div id="rev_slider_1_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="home-01" data-source="gallery" style="margin:0px auto;background:transparent;padding:0px;margin-top:0px;margin-bottom:0px;">
     <!-- START REVOLUTION SLIDER 5.4.7 fullwidth mode -->
@@ -720,3 +723,4 @@
                 </div>
             </div>
             <!-- Blog area End Here -->
+@endsection
