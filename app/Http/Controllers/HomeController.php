@@ -15,7 +15,14 @@ class HomeController extends Controller
 	}
 
 	public function listProducts($cateId){
-
+		// find object by cate id
+		$cate = Category::find($cateId);
+		if($cate == null){
+			return "not found!";
+		}
+		// get paginate of products belong to current cate
+		$products = Product::where('cate_id', $cateId)->paginate(12);
+		// return view with cate and list products
 		return view('list-product', compact('cate', 'products'));
 	}
 }
