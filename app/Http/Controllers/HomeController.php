@@ -10,9 +10,9 @@ use Illuminate\Contracts\Support\Jsonable;
 class HomeController extends Controller
 {
 	public function index(){
-		$menus = Category::take(4)->get();
+		
 		$products = Product::take(12)->get();
-		return view('homepage', compact('products', 'menus'));
+		return view('homepage', compact('products'));
 	}
 
 	public function listProducts($cateId){
