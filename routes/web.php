@@ -11,15 +11,4 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-use App\Category;
-use App\Product;
-Route::get('/list-cate', function(){
-	$product = Product::find(20);
-
-	dd($product->category->cate_name);
-
-});
+Route::get('/', 'HomeController@index');
