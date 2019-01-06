@@ -1,5 +1,5 @@
 <!-- Header Area Start -->
-<header class="header header-transparent header-fullwidth header-style-1">
+<header class="header @if($transparentMenu == true) header-transparent @endif header-fullwidth header-style-1">
     <div class="header-inner fixed-header">
         <div class="container-fluid">
             <div class="row align-items-center">

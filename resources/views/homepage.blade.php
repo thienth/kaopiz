@@ -1,4 +1,4 @@
-@extends('layouts.client-master')
+@extends('layouts.client-master', ['transparentMenu' => true])
 @section('title', "Trang chủ")
 @section('content')
 <div class="homepage-slider">

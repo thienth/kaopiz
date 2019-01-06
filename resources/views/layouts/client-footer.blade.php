@@ -423,7 +423,7 @@
 <!-- Modal End -->
 
 <!-- Newsletter Popup Start -->
-<div class="ai-newsletter-popup" id="subscribe-popup">
+{{-- <div class="ai-newsletter-popup" id="subscribe-popup">
     <div class="ai-newsletter-popup-modal">
         <a class="custom-close popup-close">
             <i class="dl-icon-close"></i>
@@ -450,5 +450,5 @@
             </div>
         </div>
     </div>
-</div> 
+</div> --}} 
         <!-- Newsletter Popup End --><!-- Footer Start -->

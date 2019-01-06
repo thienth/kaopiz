@@ -31,11 +31,14 @@
             <div class="ai-child ai-bounce3"></div>
         </div>
     </div>
+    
 
     <!-- Main Wrapper Start -->
     <div class="wrapper enable-header-transparent">
-        @include('layouts.client-header')
 
+        @include('layouts.client-header', ['transparentMenu' => $transparentMenu ?? false])
+
+        @yield('breadcrumb-area')
         <!-- Main Content Wrapper Start -->
         <div id="content" class="main-content-wrapper">
             @yield('content')
