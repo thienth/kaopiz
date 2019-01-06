@@ -1022,7 +1022,11 @@
                                     <div class="row align-items-center">
                                         <div class="col-md-6 text-md-left text-center mb-sm--20">
                                             <div class="shop-toolbar__left">
-                                                <p class="product-pages">Showing 1–9 of 42 results</p>
+                                                @php
+                                                    $from = ($products->currentPage() - 1)*$products->perPage()+1;
+                                                    $to = $products->lastPage() === $products->currentPage() ? $products->total() : $products->currentPage()*$products->perPage();
+                                                @endphp
+                                                <p class="product-pages">Showing {{$from}}-{{$to}} of {{$products->total()}} results</p>
                                             </div>
                                         </div>
                                         <div class="col-md-6">

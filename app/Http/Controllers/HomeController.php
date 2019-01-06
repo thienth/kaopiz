@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use Illuminate\Contracts\Support\Jsonable;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,6 @@ class HomeController extends Controller
 		// get paginate of products belong to current cate
 		$products = Product::where('cate_id', $cateId)->paginate(12);
 		// return view with cate and list products
-		return view('list-product', compact('cate', 'products'));
+		return view('list-product', compact('cate', 'products', 'jsonData'));
 	}
 }
