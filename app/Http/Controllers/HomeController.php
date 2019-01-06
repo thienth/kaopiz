@@ -13,4 +13,9 @@ class HomeController extends Controller
 		$products = Product::take(12)->get();
 		return view('homepage', compact('products', 'menus'));
 	}
+
+	public function listProducts($cateId){
+
+		return view('list-product', compact('cate', 'products'));
+	}
 }

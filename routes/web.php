@@ -11,4 +11,13 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/danh-muc/{id}.htm', function($id){
+	dd($id);
+})->name('cate');
+Route::get('test-named-route', function(){
+	return route('home');
+});
+Route::post('abc', function(){
+	return 'done';
+});
