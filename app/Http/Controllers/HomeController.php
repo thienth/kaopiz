@@ -62,7 +62,8 @@ class HomeController extends Controller
 	}
 
 	public function cpPostLogin(Request $request){
-		if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+		$remember = $request->has('remember');
+		if(Auth::attempt(['email' => $request->email, 'password' => $request->password], $remember)){
 			return redirect(route('dashboard'));
 		}else{
 			return view('admin.login')->with('msg', 'Sai tài khoản/mật khẩu');
