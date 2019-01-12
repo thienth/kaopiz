@@ -1,7 +1,7 @@
 @extends('layouts.client-master')
 @section('title', $model->name)
 @section('breadcrumb-area')
-<div class="breadcrumb-area pt--70 pt-md--25">
+<div class="breadcrumb-area breadcrumb-mg-btm-120 pt--70 pt-md--25">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -24,54 +24,38 @@
                     <div class="product-gallery vertical-slide-nav">
                         <div class="product-gallery__thumb">
                             <div class="product-gallery__thumb--image">
-                                <div class="nav-slider slick-vertical slick-initialized slick-slider" data-options="{
-                                &quot;vertical&quot;: true, 
-                                &quot;vertical_md&quot;: false, 
-                                &quot;infinite_md&quot;: false, 
-                                &quot;slideToShow_sm&quot;: 4,
-                                &quot;slideToShow_xs&quot;: 3,
-                                &quot;arrows&quot;: true,
-                                &quot;arrowPrev&quot;: &quot;fa fa-angle-up&quot;,
-                                &quot;arrowNext&quot;: &quot;fa fa-angle-down&quot;,
-                                &quot;arrowPrev_md&quot;: &quot;dl-icon-left&quot;,
-                                &quot;arrowNext_md&quot;: &quot;dl-icon-right&quot;
-                                }"><span class="slick-btn slick-prev slick-arrow" aria-disabled="false" style=""><i class="fa fa-angle-up"></i></span>
-                                    <div class="slick-list draggable" style="height: 270.562px;"><div class="slick-track" style="opacity: 1; height: 361px; transform: translate3d(0px, -90px, 0px);"><figure class="product-gallery__thumb--single slick-slide" data-slick-index="0" aria-hidden="true" style="width: 70px;" tabindex="-1">
-                                        <img src="assets/img/products/prod-19-1-2.jpg" alt="Products">
-                                    </figure><figure class="product-gallery__thumb--single slick-slide" data-slick-index="1" aria-hidden="true" style="width: 70px;" tabindex="-1">
-                                        <img src="assets/img/products/prod-19-2-2.jpg" alt="Products">
-                                    </figure><figure class="product-gallery__thumb--single slick-slide slick-current slick-active" data-slick-index="2" aria-hidden="false" style="width: 70px;" tabindex="0">
-                                        <img src="assets/img/products/prod-19-3-2.jpg" alt="Products">
-                                    </figure><figure class="product-gallery__thumb--single slick-slide slick-active" data-slick-index="3" aria-hidden="false" style="width: 70px;" tabindex="0">
-                                        <img src="assets/img/products/prod-19-4-2.jpg" alt="Products">
-                                    </figure></div></div>
-                                    
-                                    
-                                    
-                                <span class="slick-btn slick-next slick-arrow slick-disabled" style="" aria-disabled="true"><i class="fa fa-angle-down"></i></span></div>
+                                <div class="nav-slider slick-vertical" 
+                                data-options='{
+                                "vertical": true, 
+                                "vertical_md": false, 
+                                "infinite_md": false, 
+                                "slideToShow_sm": 4,
+                                "slideToShow_xs": 3,
+                                "arrows": true,
+                                "arrowPrev": "fa fa-angle-up",
+                                "arrowNext": "fa fa-angle-down",
+                                "arrowPrev_md": "dl-icon-left",
+                                "arrowNext_md": "dl-icon-right"
+                                }'>
+                                    @foreach ($model->galleries as $gl)
+                                    <figure class="product-gallery__thumb--single">
+                                        <img src="{{$gl->img_url}}" alt="Products">
+                                    </figure>
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
                         <div class="product-gallery__large-image">
                             <div class="gallery-with-thumbs">
                                 <div class="product-gallery__wrapper">
-                                    <div class="main-slider product-gallery__full-image image-popup slick-initialized slick-slider">
-                                        <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 2040px;"><figure class="product-gallery__image zoom slick-slide" data-slick-index="0" style="position: relative; overflow: hidden; width: 510px; left: 0px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;" aria-hidden="true" tabindex="-1">
-                                            <img src="assets/img/products/prod-19-1-big.jpg" alt="Product">
-                                        <img role="presentation" alt="" src="file:///Users/ginv2/Google%20Drive/17.working/25.%20Son-market/airi/assets/img/products/prod-19-1-big.jpg" class="zoomImg" style="position: absolute; top: -0.960784px; left: -8.64706px; opacity: 0; width: 1000px; height: 1300px; border: none; max-width: none; max-height: none;"></figure><figure class="product-gallery__image zoom slick-slide" data-slick-index="1" style="position: relative; overflow: hidden; width: 510px; left: -510px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;" aria-hidden="true" tabindex="-1">
-                                            <img src="assets/img/products/prod-19-2-big.jpg" alt="Product">
-                                        <img role="presentation" alt="" src="file:///Users/ginv2/Google%20Drive/17.working/25.%20Son-market/airi/assets/img/products/prod-19-2-big.jpg" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 1000px; height: 1300px; border: none; max-width: none; max-height: none;"></figure><figure class="product-gallery__image zoom slick-slide slick-current slick-active" data-slick-index="2" style="position: relative; overflow: hidden; width: 510px; left: -1020px; top: 0px; z-index: 999; opacity: 1;" aria-hidden="false" tabindex="0">
-                                            <img src="assets/img/products/prod-19-3-big.jpg" alt="Product">
-                                        <img role="presentation" alt="" src="file:///Users/ginv2/Google%20Drive/17.working/25.%20Son-market/airi/assets/img/products/prod-19-3-big.jpg" class="zoomImg" style="position: absolute; top: -56.6863px; left: -6.72549px; opacity: 0; width: 1000px; height: 1300px; border: none; max-width: none; max-height: none;"></figure><figure class="product-gallery__image zoom slick-slide" data-slick-index="3" style="position: relative; overflow: hidden; width: 510px; left: -1530px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;" aria-hidden="true" tabindex="-1">
-                                            <img src="assets/img/products/prod-19-4-big.jpg" alt="Product">
-                                        <img role="presentation" alt="" src="file:///Users/ginv2/Google%20Drive/17.working/25.%20Son-market/airi/assets/img/products/prod-19-4-big.jpg" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 1000px; height: 1300px; border: none; max-width: none; max-height: none;"></figure></div></div>
-                                        
-                                        
-                                        
+                                    <div class="main-slider product-gallery__full-image image-popup">
+                                        @foreach ($model->galleries as $gl)
+                                            <figure class="product-gallery__image zoom">
+                                                <img src="{{$gl->img_url}}" alt="Product">
+                                            </figure>
+                                        @endforeach
                                     </div>
-                                    <div class="product-gallery__actions">
-                                        <button class="action-btn btn-zoom-popup"><i class="dl-icon-zoom-in"></i></button>
-                                        <a href="https://www.youtube.com/watch?v=Rp19QD2XIGM" class="action-btn video-popup"><i class="dl-icon-format-video"></i></a>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -113,7 +97,7 @@
                         <div class="product-action flex-row align-items-center">
                             <div class="quantity">
                                 <input type="number" class="quantity-input" name="qty" id="qty" value="1" min="1">
-                            <div class="dec qtybutton">-</div><div class="inc qtybutton">+</div></div>
+                            </div>
                             <button type="button" class="btn btn-style-1 btn-large add-to-cart">
                                 Add To Cart
                             </button>
@@ -182,16 +166,7 @@
                     <div class="tab-content product-data-tab__content" id="product-tabContent">
                         <div class="tab-pane fade show active" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab">
                             <div class="product-description">
-                                <p>Donec accumsan auctor iaculis. Sed suscipit arcu ligula, at egestas magna molestie a. Proin ac ex maximus, ultrices justo eget, sodales orci. Aliquam egestas libero ac turpis pharetra, in vehicula lacus scelerisque. Vestibulum ut sem laoreet, feugiat tellus at, hendrerit arcu.
-
-                                </p><p>Nunc lacus elit, faucibus ac laoreet sed, dapibus ac mi. Maecenas eu ante a elit tempus fermentum. Aliquam commodo tincidunt semper. Phasellus accumsan, justo ac mollis pharetra, ex dui pharetra nisl, a scelerisque ipsum nulla ac sem. Cras eu risus urna. Duis lorem sapien, congue eget nisl sit amet, rutrum faucibus elit.</p>
-                                
-                                <ul>
-                                    <li>Maecenas eu ante a elit tempus fermentum. Aliquam commodo tincidunt semper</li>
-                                    <li>Aliquam est et tempus. Eaecenas libero ante, tincidunt vel</li>
-                                </ul>
-                                
-                                <p>Curabitur sodales euismod nibh. Sed iaculis sed orci eget semper. Nam auctor, augue et eleifend tincidunt, felis mauris convallis neque, in placerat metus urna laoreet diam. Morbi sagittis facilisis arcu sed ornare. Maecenas dictum urna ut facilisis rhoncus.iaculis sed orci eget semper. Nam auctor, augue et eleifend tincidunt, felis mauris</p>
+                                {!!$model->detail!!}
                             </div>
                         </div>
                         <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
@@ -284,41 +259,44 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <div class="airi-element-carousel product-carousel nav-vertical-center slick-carousel-0 slick-gutter-30 slick-initialized slick-slider" data-slick-options="{
-                        &quot;spaceBetween&quot;: 30,
-                        &quot;slidesToShow&quot;: 4,
-                        &quot;slidesToScroll&quot;: 1,
-                        &quot;arrows&quot;: true, 
-                        &quot;prevArrow&quot;: &quot;dl-icon-left&quot;, 
-                        &quot;nextArrow&quot;: &quot;dl-icon-right&quot; 
-                        }" data-slick-responsive="[
-                            {&quot;breakpoint&quot;:1200, &quot;settings&quot;: {&quot;slidesToShow&quot;: 3} },
-                            {&quot;breakpoint&quot;:991, &quot;settings&quot;: {&quot;slidesToShow&quot;: 2} },
-                            {&quot;breakpoint&quot;:450, &quot;settings&quot;: {&quot;slidesToShow&quot;: 1} }
-                        ]">
-                            <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 1252px; transform: translate3d(0px, 0px, 0px);"><div class="airi-product slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 313px;" tabindex="0">
+                        <div class="airi-element-carousel product-carousel nav-vertical-center" 
+                        data-slick-options='{
+                        "spaceBetween": 30,
+                        "slidesToShow": 4,
+                        "slidesToScroll": 1,
+                        "arrows": true, 
+                        "prevArrow": "dl-icon-left", 
+                        "nextArrow": "dl-icon-right" 
+                        }'
+                        data-slick-responsive='[
+                            {"breakpoint":1200, "settings": {"slidesToShow": 3} },
+                            {"breakpoint":991, "settings": {"slidesToShow": 2} },
+                            {"breakpoint":450, "settings": {"slidesToShow": 1} }
+                        ]'
+                        >
+                            <div class="airi-product">
                                 <div class="product-inner">
                                     <figure class="product-image">
                                         <div class="product-image--holder">
-                                            <a href="product-details.html" tabindex="0">
+                                            <a href="product-details.html">
                                                 <img src="assets/img/products/prod-8-2.jpg" alt="Product Image" class="primary-image">
                                                 <img src="assets/img/products/prod-8-1.jpg" alt="Product Image" class="secondary-image">
                                             </a>
                                         </div>
                                         <div class="airi-product-action">
                                             <div class="product-action">
-                                                <a class="quickview-btn action-btn" data-toggle="tooltip" data-placement="top" title="" data-original-title="Quick Shop" tabindex="0">
+                                                <a class="quickview-btn action-btn" data-toggle="tooltip" data-placement="top" title="Quick Shop">
                                                     <span data-toggle="modal" data-target="#productModal">
                                                         <i class="dl-icon-view"></i>
                                                     </span>
                                                 </a>
-                                                <a class="add_to_cart_btn action-btn" href="cart.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Cart" tabindex="0">
+                                                <a class="add_to_cart_btn action-btn" href="cart.html" data-toggle="tooltip" data-placement="top" title="Add to Cart">
                                                     <i class="dl-icon-cart29"></i>
                                                 </a>
-                                                <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Wishlist" tabindex="0">
+                                                <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
                                                     <i class="dl-icon-heart4"></i>
                                                 </a>
-                                                <a class="add_compare action-btn" href="compare.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Compare" tabindex="0">
+                                                <a class="add_compare action-btn" href="compare.html" data-toggle="tooltip" data-placement="top" title="Add to Compare">
                                                     <i class="dl-icon-compare"></i>
                                                 </a>
                                             </div>
@@ -326,7 +304,7 @@
                                     </figure>
                                     <div class="product-info text-center">
                                         <h3 class="product-title">
-                                            <a href="product-details.html" tabindex="0">Polka dot blouse</a>
+                                            <a href="product-details.html">Polka dot blouse</a>
                                         </h3>
                                         <span class="product-price-wrapper">
                                             <span class="money">$49.00</span>
@@ -336,29 +314,30 @@
                                         </span>
                                     </div>
                                 </div>
-                            </div><div class="airi-product slick-slide slick-active" data-slick-index="1" aria-hidden="false" style="width: 313px;" tabindex="0">
+                            </div>
+                            <div class="airi-product">
                                 <div class="product-inner">
                                     <figure class="product-image">
                                         <div class="product-image--holder">
-                                            <a href="product-details.html" tabindex="0">
+                                            <a href="product-details.html">
                                                 <img src="assets/img/products/prod-3-2.jpg" alt="Product Image" class="primary-image">
                                                 <img src="assets/img/products/prod-3-3.jpg" alt="Product Image" class="secondary-image">
                                             </a>
                                         </div>
                                         <div class="airi-product-action">
                                             <div class="product-action">
-                                                <a class="quickview-btn action-btn" data-toggle="tooltip" data-placement="top" title="" data-original-title="Quick Shop" tabindex="0">
+                                                <a class="quickview-btn action-btn" data-toggle="tooltip" data-placement="top" title="Quick Shop">
                                                     <span data-toggle="modal" data-target="#productModal">
                                                         <i class="dl-icon-view"></i>
                                                     </span>
                                                 </a>
-                                                <a class="add_to_cart_btn action-btn" href="cart.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Cart" tabindex="0">
+                                                <a class="add_to_cart_btn action-btn" href="cart.html" data-toggle="tooltip" data-placement="top" title="Add to Cart">
                                                     <i class="dl-icon-cart29"></i>
                                                 </a>
-                                                <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Wishlist" tabindex="0">
+                                                <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
                                                     <i class="dl-icon-heart4"></i>
                                                 </a>
-                                                <a class="add_compare action-btn" href="compare.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Compare" tabindex="0">
+                                                <a class="add_compare action-btn" href="compare.html" data-toggle="tooltip" data-placement="top" title="Add to Compare">
                                                     <i class="dl-icon-compare"></i>
                                                 </a>
                                             </div>
@@ -366,36 +345,37 @@
                                     </figure>
                                     <div class="product-info text-center">
                                         <h3 class="product-title">
-                                            <a href="product-details.html" tabindex="0">Dotted mesh blouse</a>
+                                            <a href="product-details.html">Dotted mesh blouse</a>
                                         </h3>
                                         <span class="product-price-wrapper">
                                             <span class="money">$49.00</span>
                                         </span>
                                     </div>
                                 </div>
-                            </div><div class="airi-product slick-slide slick-active" data-slick-index="2" aria-hidden="false" style="width: 313px;" tabindex="0">
+                            </div>
+                            <div class="airi-product">
                                 <div class="product-inner">
                                     <figure class="product-image">
                                         <div class="product-image--holder">
-                                            <a href="product-details.html" tabindex="0">
+                                            <a href="product-details.html">
                                                 <img src="assets/img/products/prod-1-1.jpg" alt="Product Image" class="primary-image">
                                                 <img src="assets/img/products/prod-1-4.jpg" alt="Product Image" class="secondary-image">
                                             </a>
                                         </div>
                                         <div class="airi-product-action">
                                             <div class="product-action">
-                                                <a class="quickview-btn action-btn" data-toggle="tooltip" data-placement="top" title="" data-original-title="Quick Shop" tabindex="0">
+                                                <a class="quickview-btn action-btn" data-toggle="tooltip" data-placement="top" title="Quick Shop">
                                                     <span data-toggle="modal" data-target="#productModal">
                                                         <i class="dl-icon-view"></i>
                                                     </span>
                                                 </a>
-                                                <a class="add_to_cart_btn action-btn" href="cart.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Cart" tabindex="0">
+                                                <a class="add_to_cart_btn action-btn" href="cart.html" data-toggle="tooltip" data-placement="top" title="Add to Cart">
                                                     <i class="dl-icon-cart29"></i>
                                                 </a>
-                                                <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Wishlist" tabindex="0">
+                                                <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
                                                     <i class="dl-icon-heart4"></i>
                                                 </a>
-                                                <a class="add_compare action-btn" href="compare.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Compare" tabindex="0">
+                                                <a class="add_compare action-btn" href="compare.html" data-toggle="tooltip" data-placement="top" title="Add to Compare">
                                                     <i class="dl-icon-compare"></i>
                                                 </a>
                                             </div>
@@ -403,36 +383,37 @@
                                     </figure>
                                     <div class="product-info text-center">
                                         <h3 class="product-title">
-                                            <a href="product-details.html" tabindex="0">Ruffled polka dot blouse</a>
+                                            <a href="product-details.html">Ruffled polka dot blouse</a>
                                         </h3>
                                         <span class="product-price-wrapper">
                                             <span class="money">$49.00</span>
                                         </span>
                                     </div>
                                 </div>
-                            </div><div class="airi-product slick-slide slick-active" data-slick-index="3" aria-hidden="false" style="width: 313px;" tabindex="0">
+                            </div>
+                            <div class="airi-product">
                                 <div class="product-inner">
                                     <figure class="product-image">
                                         <div class="product-image--holder">
-                                            <a href="product-details.html" tabindex="0">
+                                            <a href="product-details.html">
                                                 <img src="assets/img/products/prod-20-1.jpg" alt="Product Image" class="primary-image">
                                                 <img src="assets/img/products/prod-20-2.jpg" alt="Product Image" class="secondary-image">
                                             </a>
                                         </div>
                                         <div class="airi-product-action">
                                             <div class="product-action">
-                                                <a class="quickview-btn action-btn" data-toggle="tooltip" data-placement="top" title="" data-original-title="Quick Shop" tabindex="0">
+                                                <a class="quickview-btn action-btn" data-toggle="tooltip" data-placement="top" title="Quick Shop">
                                                     <span data-toggle="modal" data-target="#productModal">
                                                         <i class="dl-icon-view"></i>
                                                     </span>
                                                 </a>
-                                                <a class="add_to_cart_btn action-btn" href="cart.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Cart" tabindex="0">
+                                                <a class="add_to_cart_btn action-btn" href="cart.html" data-toggle="tooltip" data-placement="top" title="Add to Cart">
                                                     <i class="dl-icon-cart29"></i>
                                                 </a>
-                                                <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Wishlist" tabindex="0">
+                                                <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
                                                     <i class="dl-icon-heart4"></i>
                                                 </a>
-                                                <a class="add_compare action-btn" href="compare.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Compare" tabindex="0">
+                                                <a class="add_compare action-btn" href="compare.html" data-toggle="tooltip" data-placement="top" title="Add to Compare">
                                                     <i class="dl-icon-compare"></i>
                                                 </a>
                                             </div>
@@ -441,17 +422,14 @@
                                     </figure>
                                     <div class="product-info text-center">
                                         <h3 class="product-title">
-                                            <a href="product-details.html" tabindex="0">Limited edition v-neck t-shirt</a>
+                                            <a href="product-details.html">Limited edition v-neck t-shirt</a>
                                         </h3>
                                         <span class="product-price-wrapper">
                                             <span class="money">$49.00</span>
                                         </span>
                                     </div>
                                 </div>
-                            </div></div></div>
-                            
-                            
-                            
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -467,41 +445,44 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <div class="airi-element-carousel product-carousel nav-vertical-center slick-carousel-1 slick-gutter-30 slick-initialized slick-slider" data-slick-options="{
-                        &quot;spaceBetween&quot;: 30,
-                        &quot;slidesToShow&quot;: 4,
-                        &quot;slidesToScroll&quot;: 1,
-                        &quot;arrows&quot;: true, 
-                        &quot;prevArrow&quot;: &quot;dl-icon-left&quot;, 
-                        &quot;nextArrow&quot;: &quot;dl-icon-right&quot; 
-                        }" data-slick-responsive="[
-                            {&quot;breakpoint&quot;:1200, &quot;settings&quot;: {&quot;slidesToShow&quot;: 3} },
-                            {&quot;breakpoint&quot;:991, &quot;settings&quot;: {&quot;slidesToShow&quot;: 2} },
-                            {&quot;breakpoint&quot;:450, &quot;settings&quot;: {&quot;slidesToShow&quot;: 1} }
-                        ]">
-                            <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 1252px; transform: translate3d(0px, 0px, 0px);"><div class="airi-product slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 313px;" tabindex="0">
+                        <div class="airi-element-carousel product-carousel nav-vertical-center" 
+                        data-slick-options='{
+                        "spaceBetween": 30,
+                        "slidesToShow": 4,
+                        "slidesToScroll": 1,
+                        "arrows": true, 
+                        "prevArrow": "dl-icon-left", 
+                        "nextArrow": "dl-icon-right" 
+                        }'
+                        data-slick-responsive='[
+                            {"breakpoint":1200, "settings": {"slidesToShow": 3} },
+                            {"breakpoint":991, "settings": {"slidesToShow": 2} },
+                            {"breakpoint":450, "settings": {"slidesToShow": 1} }
+                        ]'
+                        >
+                            <div class="airi-product">
                                 <div class="product-inner">
                                     <figure class="product-image">
                                         <div class="product-image--holder">
-                                            <a href="product-details.html" tabindex="0">
+                                            <a href="product-details.html">
                                                 <img src="assets/img/products/prod-12-1.jpg" alt="Product Image" class="primary-image">
                                                 <img src="assets/img/products/prod-12-4.jpg" alt="Product Image" class="secondary-image">
                                             </a>
                                         </div>
                                         <div class="airi-product-action">
                                             <div class="product-action">
-                                                <a class="quickview-btn action-btn" data-toggle="tooltip" data-placement="top" title="" data-original-title="Quick Shop" tabindex="0">
+                                                <a class="quickview-btn action-btn" data-toggle="tooltip" data-placement="top" title="Quick Shop">
                                                     <span data-toggle="modal" data-target="#productModal">
                                                         <i class="dl-icon-view"></i>
                                                     </span>
                                                 </a>
-                                                <a class="add_to_cart_btn action-btn" href="cart.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Cart" tabindex="0">
+                                                <a class="add_to_cart_btn action-btn" href="cart.html" data-toggle="tooltip" data-placement="top" title="Add to Cart">
                                                     <i class="dl-icon-cart29"></i>
                                                 </a>
-                                                <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Wishlist" tabindex="0">
+                                                <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
                                                     <i class="dl-icon-heart4"></i>
                                                 </a>
-                                                <a class="add_compare action-btn" href="compare.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Compare" tabindex="0">
+                                                <a class="add_compare action-btn" href="compare.html" data-toggle="tooltip" data-placement="top" title="Add to Compare">
                                                     <i class="dl-icon-compare"></i>
                                                 </a>
                                             </div>
@@ -509,7 +490,7 @@
                                     </figure>
                                     <div class="product-info text-center">
                                         <h3 class="product-title">
-                                            <a href="product-details.html" tabindex="0">Open sweatshirt</a>
+                                            <a href="product-details.html">Open sweatshirt</a>
                                         </h3>
                                         <span class="product-price-wrapper">
                                             <span class="money">$49.00</span>
@@ -519,29 +500,30 @@
                                         </span>
                                     </div>
                                 </div>
-                            </div><div class="airi-product slick-slide slick-active" data-slick-index="1" aria-hidden="false" style="width: 313px;" tabindex="0">
+                            </div>
+                            <div class="airi-product">
                                 <div class="product-inner">
                                     <figure class="product-image">
                                         <div class="product-image--holder">
-                                            <a href="product-details.html" tabindex="0">
+                                            <a href="product-details.html">
                                                 <img src="assets/img/products/prod-5-3.jpg" alt="Product Image" class="primary-image">
                                                 <img src="assets/img/products/prod-5-4.jpg" alt="Product Image" class="secondary-image">
                                             </a>
                                         </div>
                                         <div class="airi-product-action">
                                             <div class="product-action">
-                                                <a class="quickview-btn action-btn" data-toggle="tooltip" data-placement="top" title="" data-original-title="Quick Shop" tabindex="0">
+                                                <a class="quickview-btn action-btn" data-toggle="tooltip" data-placement="top" title="Quick Shop">
                                                     <span data-toggle="modal" data-target="#productModal">
                                                         <i class="dl-icon-view"></i>
                                                     </span>
                                                 </a>
-                                                <a class="add_to_cart_btn action-btn" href="cart.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Cart" tabindex="0">
+                                                <a class="add_to_cart_btn action-btn" href="cart.html" data-toggle="tooltip" data-placement="top" title="Add to Cart">
                                                     <i class="dl-icon-cart29"></i>
                                                 </a>
-                                                <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Wishlist" tabindex="0">
+                                                <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
                                                     <i class="dl-icon-heart4"></i>
                                                 </a>
-                                                <a class="add_compare action-btn" href="compare.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Compare" tabindex="0">
+                                                <a class="add_compare action-btn" href="compare.html" data-toggle="tooltip" data-placement="top" title="Add to Compare">
                                                     <i class="dl-icon-compare"></i>
                                                 </a>
                                             </div>
@@ -549,36 +531,37 @@
                                     </figure>
                                     <div class="product-info text-center">
                                         <h3 class="product-title">
-                                            <a href="product-details.html" tabindex="0">Split suede handbag</a>
+                                            <a href="product-details.html">Split suede handbag</a>
                                         </h3>
                                         <span class="product-price-wrapper">
                                             <span class="money">$49.00</span>
                                         </span>
                                     </div>
                                 </div>
-                            </div><div class="airi-product slick-slide slick-active" data-slick-index="2" aria-hidden="false" style="width: 313px;" tabindex="0">
+                            </div>
+                            <div class="airi-product">
                                 <div class="product-inner">
                                     <figure class="product-image">
                                         <div class="product-image--holder">
-                                            <a href="product-details.html" tabindex="0">
+                                            <a href="product-details.html">
                                                 <img src="assets/img/products/prod-14-2.jpg" alt="Product Image" class="primary-image">
                                                 <img src="assets/img/products/prod-14-1.jpg" alt="Product Image" class="secondary-image">
                                             </a>
                                         </div>
                                         <div class="airi-product-action">
                                             <div class="product-action">
-                                                <a class="quickview-btn action-btn" data-toggle="tooltip" data-placement="top" title="" data-original-title="Quick Shop" tabindex="0">
+                                                <a class="quickview-btn action-btn" data-toggle="tooltip" data-placement="top" title="Quick Shop">
                                                     <span data-toggle="modal" data-target="#productModal">
                                                         <i class="dl-icon-view"></i>
                                                     </span>
                                                 </a>
-                                                <a class="add_to_cart_btn action-btn" href="cart.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Cart" tabindex="0">
+                                                <a class="add_to_cart_btn action-btn" href="cart.html" data-toggle="tooltip" data-placement="top" title="Add to Cart">
                                                     <i class="dl-icon-cart29"></i>
                                                 </a>
-                                                <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Wishlist" tabindex="0">
+                                                <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
                                                     <i class="dl-icon-heart4"></i>
                                                 </a>
-                                                <a class="add_compare action-btn" href="compare.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Compare" tabindex="0">
+                                                <a class="add_compare action-btn" href="compare.html" data-toggle="tooltip" data-placement="top" title="Add to Compare">
                                                     <i class="dl-icon-compare"></i>
                                                 </a>
                                             </div>
@@ -586,36 +569,37 @@
                                     </figure>
                                     <div class="product-info text-center">
                                         <h3 class="product-title">
-                                            <a href="product-details.html" tabindex="0">Super skinny blazer</a>
+                                            <a href="product-details.html">Super skinny blazer</a>
                                         </h3>
                                         <span class="product-price-wrapper">
                                             <span class="money">$49.00</span>
                                         </span>
                                     </div>
                                 </div>
-                            </div><div class="airi-product slick-slide slick-active" data-slick-index="3" aria-hidden="false" style="width: 313px;" tabindex="0">
+                            </div>
+                            <div class="airi-product">
                                 <div class="product-inner">
                                     <figure class="product-image">
                                         <div class="product-image--holder">
-                                            <a href="product-details.html" tabindex="0">
+                                            <a href="product-details.html">
                                                 <img src="assets/img/products/prod-7-2.jpg" alt="Product Image" class="primary-image">
                                                 <img src="assets/img/products/prod-7-1.jpg" alt="Product Image" class="secondary-image">
                                             </a>
                                         </div>
                                         <div class="airi-product-action">
                                             <div class="product-action">
-                                                <a class="quickview-btn action-btn" data-toggle="tooltip" data-placement="top" title="" data-original-title="Quick Shop" tabindex="0">
+                                                <a class="quickview-btn action-btn" data-toggle="tooltip" data-placement="top" title="Quick Shop">
                                                     <span data-toggle="modal" data-target="#productModal">
                                                         <i class="dl-icon-view"></i>
                                                     </span>
                                                 </a>
-                                                <a class="add_to_cart_btn action-btn" href="cart.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Cart" tabindex="0">
+                                                <a class="add_to_cart_btn action-btn" href="cart.html" data-toggle="tooltip" data-placement="top" title="Add to Cart">
                                                     <i class="dl-icon-cart29"></i>
                                                 </a>
-                                                <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Wishlist" tabindex="0">
+                                                <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
                                                     <i class="dl-icon-heart4"></i>
                                                 </a>
-                                                <a class="add_compare action-btn" href="compare.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Compare" tabindex="0">
+                                                <a class="add_compare action-btn" href="compare.html" data-toggle="tooltip" data-placement="top" title="Add to Compare">
                                                     <i class="dl-icon-compare"></i>
                                                 </a>
                                             </div>
@@ -624,14 +608,14 @@
                                     </figure>
                                     <div class="product-info text-center">
                                         <h3 class="product-title">
-                                            <a href="product-details.html" tabindex="0">Leopard print satin shirt</a>
+                                            <a href="product-details.html">Leopard print satin shirt</a>
                                         </h3>
                                         <span class="product-price-wrapper">
                                             <span class="money">$49.00</span>
                                         </span>
                                     </div>
                                 </div>
-                            </div></div></div>
+                            </div>
                         </div>
                     </div>
                 </div>
