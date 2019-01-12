@@ -39,6 +39,9 @@
 
     <form action="{{route('login')}}" method="post">
         @csrf
+        @if (isset($msg))
+        <h5 class="text-danger">{{$msg}}</h5>
+        @endif
       <div class="form-group has-feedback">
         <input type="email" class="form-control" placeholder="Email" name="email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
