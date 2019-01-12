@@ -25,6 +25,7 @@
             <th>Giá</th>
             <th>Views</th>
             <th>Star</th>
+            <th><a href="" class="btn btn-sm btn-success">Tạo mới</a></th>
         </tr>
         @foreach ($products as $item)
             <tr>
@@ -37,6 +38,10 @@
                 <td>${{$item->price}}</td>
                 <td>{{$item->views}}</td>
                 <td>{{$item->star}}</td>
+                <td>
+                    <a href="" class="btn btn-info btn-sm">Sửa</a>
+                    <a href="javascript:void(0);" linkUrl="{{route('product.remove', ['id' => $item->id])}}" class="btn btn-danger btn-sm btn-remove">Xóa</a>
+                </td>
             </tr>
         @endforeach
         <tr>
@@ -48,4 +53,29 @@
     </div>
     <!-- /.box-body -->
 </div>
+@endsection
+
+@section('customjs')
+    <script>
+        $(document).ready(function(){
+            $('.btn-remove').on('click', function(){
+                var url = $(this).attr('linkUrl');
+                Swal({
+                        title: 'Bạn có chắc chắn muốn xóa ?',
+                        type: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Đồng ý'
+                })
+                .then((result) => {
+                    if (result.value) {
+                        window.location.href = url;
+                    }
+                })
+            });
+
+        });
+
+    </script>
 @endsection

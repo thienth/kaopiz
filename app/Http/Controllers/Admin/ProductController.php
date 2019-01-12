@@ -21,4 +21,10 @@ class ProductController extends Controller
         
         return view('admin.product.index', compact('products', 'keyword'));
     }
+
+    public function remove($id){
+        $model = Product::find($id);
+        $model->delete();
+        return redirect(route('product.list'));
+    }
 }
