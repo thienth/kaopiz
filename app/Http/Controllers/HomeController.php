@@ -50,4 +50,8 @@ class HomeController extends Controller
 		// tra ve giao dien chi tiet san pham
 		return view('detail', compact('model'));
 	}
+
+	public function cpLogin(){
+		return view('admin.login');
+	}
 }

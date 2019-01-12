@@ -10,3 +10,5 @@ Route::get('/danh-muc/{id}.htm',
 // chi tiet san pham
 Route::get('/chi-tiet/{id}.htm', 
         'HomeController@detail')->name('detail');
+
+Route::get('cp-login', "HomeController@cpLogin")->name('login');
