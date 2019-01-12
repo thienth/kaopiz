@@ -27,6 +27,14 @@ class HomeController extends Controller
 		return view('list-product', compact('cate', 'products'));
 	}
 
+	/**
+	 * Lay ra chi tiet san pham dua vao id truyen len 
+	 * @author ThienTH
+	 * @date 12/01/2019
+	 * @param $id - id cua san pham 
+	 * @return 404 page | view chi tiet
+	 * @update - TrongNN - 15/01/2019 - update tang view cho san pham
+	 */
 	public function detail($id){
 		// kiem tra xem id co ton tai trong bang products hay khong
 		$model = Product::find($id);
@@ -36,7 +44,7 @@ class HomeController extends Controller
 		}
 		
 		// tang view cua san pham len 1 don vi
-		$model->views = ++$model->view;
+		$model->views = ++$model->views;
 		$model->save();
 
 		// tra ve giao dien chi tiet san pham
