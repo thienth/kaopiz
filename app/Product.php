@@ -11,4 +11,9 @@ class Product extends Model
     {
         return $this->belongsTo('App\Category', 'cate_id');
     }
+
+    public function galleries()
+    {
+        return $this->hasMany('App\ProductGallery', 'product_id', 'id');
+    }
 }
