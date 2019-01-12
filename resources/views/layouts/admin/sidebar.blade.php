@@ -17,7 +17,7 @@
             <li class="header">MAIN NAVIGATION</li>
             <li>
                 <a href="{{route('dashboard')}}">
-                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                    <i class="fa fa-dashboard"></i><span>Dashboard</span>
                 </a>
             </li>
             <li class="treeview">
