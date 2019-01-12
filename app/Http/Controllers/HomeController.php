@@ -26,4 +26,20 @@ class HomeController extends Controller
 		// return view with cate and list products
 		return view('list-product', compact('cate', 'products'));
 	}
+
+	public function detail($id){
+		// kiem tra xem id co ton tai trong bang products hay khong
+		$model = Product::find($id);
+
+		if(!$model){
+			return "404 notfound";
+		}
+		
+		// tang view cua san pham len 1 don vi
+		$model->views = ++$model->view;
+		$model->save();
+
+		// tra ve giao dien chi tiet san pham
+		return view('detail', compact('model'));
+	}
 }
