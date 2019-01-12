@@ -8,6 +8,6 @@ use App\Http\Controllers\Controller;
 class DashboardController extends Controller
 {
     public function index(){
-    	return "Hello";
+    	return view('layouts.admin.master');
     }
 }
