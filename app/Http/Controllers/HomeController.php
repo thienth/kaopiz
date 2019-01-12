@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
 use Illuminate\Contracts\Support\Jsonable;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -53,5 +54,13 @@ class HomeController extends Controller
 
 	public function cpLogin(){
 		return view('admin.login');
+	}
+
+	public function cpPostLogin(Request $request){
+		if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+			return redirect(route('dashboard'));
+		}else{
+			return view('admin.login')->with('msg', 'Sai tài khoản/mật khẩu');
+		}
 	}
 }

@@ -12,3 +12,4 @@ Route::get('/chi-tiet/{id}.htm',
         'HomeController@detail')->name('detail');
 
 Route::get('cp-login', "HomeController@cpLogin")->name('login');
+Route::post('cp-login', "HomeController@cpPostLogin");
