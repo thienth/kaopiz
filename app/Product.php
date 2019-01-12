@@ -16,4 +16,9 @@ class Product extends Model
     {
         return $this->hasMany('App\ProductGallery', 'product_id', 'id');
     }
+
+    public function relates(){
+        $relates = Product::where('cate_id', $this->cate_id)->take(4)->get();
+        return $relates;
+    }
 }
