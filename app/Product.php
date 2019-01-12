@@ -18,7 +18,11 @@ class Product extends Model
     }
 
     public function relates(){
-        $relates = Product::where('cate_id', $this->cate_id)->take(4)->get();
+        $relates = Product::where('cate_id', $this->cate_id)
+                            ->orderBy('views', 'desc')
+                            ->orderBy('id', 'desc')
+                            ->take(4)
+                            ->get();
         return $relates;
     }
 }
