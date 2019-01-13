@@ -62,9 +62,6 @@ class ProductController extends Controller
             $galleryItem->img_url = $path;
             $galleryItem->save();
         }
-
         return redirect(route('product.list'));
-        
-
     }
 }

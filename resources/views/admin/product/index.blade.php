@@ -32,7 +32,7 @@
                 <td>{{$loop->iteration}}</td>
                 <td>{{$item->name}}</td>
                 <td>
-                    <img src="{{$item->image}}" width="50">
+                    <img src="{{asset($item->image)}}" width="50">
                 </td>
                 <td>{{$item->category->cate_name}}</td>
                 <td>${{$item->price}}</td>
