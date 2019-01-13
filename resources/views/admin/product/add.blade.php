@@ -32,7 +32,7 @@
             </div>
             <div class="col-md-6">
                 <div class="preview-img">
-                    <img src="http://lorempixel.com/800/600/sports" class="img-responsive">
+                    <img src="{{asset('images/default-image.png')}}" class="img-responsive">
                 </div>
                 <div class="form-group">
                     <label for="">Ảnh sản phẩm <span class="text-danger">*</span></label>
