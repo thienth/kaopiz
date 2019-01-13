@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Product;
 use App\Category;
 use App\ProductGallery;
+use App\Http\Requests\SaveProductRequest;
 
 class ProductController extends Controller
 {
@@ -36,7 +37,7 @@ class ProductController extends Controller
 
         return view('admin.product.add', compact('model', 'cates'));
     }
-    public function postAdd(Request $request){
+    public function postAdd(SaveProductRequest $request){
         $model = new Product();
         // gan thuoc tinh su dung $fillable trong model
         $model->fill($request->all());
@@ -63,5 +64,9 @@ class ProductController extends Controller
             $galleryItem->save();
         }
         return redirect(route('product.list'));
+    }
+
+    public function postEdit($id, SaveProductRequest $request){
+        
     }
 }

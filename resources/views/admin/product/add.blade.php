@@ -7,7 +7,10 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="">Tên sản phẩm <span class="text-danger">*</span></label>
-                    <input type="text" name="name" class="form-control" placeholder="Tên sp">
+                    <input type="text" name="name" class="form-control" value="{{old('name')}}" placeholder="Tên sp">
+                    @if ($errors->first('name'))
+                        <span class="text-danger">{{$errors->first('name')}}</span>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="">Danh mục <span class="text-danger">*</span></label>
@@ -37,6 +40,9 @@
                 <div class="form-group">
                     <label for="">Ảnh sản phẩm <span class="text-danger">*</span></label>
                     <input type="file" name="image" class="form-control" onchange="encodeImageFileAsURL(this)">
+                    @if ($errors->first('image'))
+                        <span class="text-danger">{{$errors->first('image')}}</span>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="">Ảnh gallery (Chọn nhiều ảnh)</label>
