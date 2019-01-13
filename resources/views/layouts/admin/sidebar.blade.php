@@ -29,8 +29,8 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                <li><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i> Danh sách</a></li>
-                <li><a href="../layout/boxed.html"><i class="fa fa-circle-o"></i> Thêm mới</a></li>
+                <li><a href="{{route('product.list')}}"><i class="fa fa-circle-o"></i> Danh sách</a></li>
+                <li><a href="{{route('product.add')}}"><i class="fa fa-circle-o"></i> Thêm mới</a></li>
                 </ul>
             </li>
         </ul>

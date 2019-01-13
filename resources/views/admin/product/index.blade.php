@@ -25,7 +25,7 @@
             <th>Giá</th>
             <th>Views</th>
             <th>Star</th>
-            <th><a href="" class="btn btn-sm btn-success">Tạo mới</a></th>
+            <th><a href="{{route('product.add')}}" class="btn btn-sm btn-success">Tạo mới</a></th>
         </tr>
         @foreach ($products as $item)
             <tr>
@@ -39,7 +39,7 @@
                 <td>{{$item->views}}</td>
                 <td>{{$item->star}}</td>
                 <td>
-                    <a href="" class="btn btn-info btn-sm">Sửa</a>
+                    <a href="{{route('product.edit', ['id' => $item->id])}}" class="btn btn-info btn-sm">Sửa</a>
                     <a href="javascript:void(0);" linkUrl="{{route('product.remove', ['id' => $item->id])}}" class="btn btn-danger btn-sm btn-remove">Xóa</a>
                 </td>
             </tr>
