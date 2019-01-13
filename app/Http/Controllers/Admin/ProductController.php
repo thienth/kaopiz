@@ -37,6 +37,17 @@ class ProductController extends Controller
 
         return view('admin.product.add', compact('model', 'cates'));
     }
+
+    public function edit($id){
+        $model = Product::find($id);
+        if(!$model){
+            return "404 notfound";
+        }
+        $cates = Category::all();
+        $galleries = ProductGallery::where('product_id', $id)->get();
+        
+        return view('admin.product.edit', compact('model', 'cates', 'galleries'));
+    }
     public function postAdd(SaveProductRequest $request){
         $model = new Product();
         // gan thuoc tinh su dung $fillable trong model
@@ -67,6 +78,6 @@ class ProductController extends Controller
     }
 
     public function postEdit($id, SaveProductRequest $request){
-        
+
     }
 }
