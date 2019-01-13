@@ -2,6 +2,7 @@
 @section('title', 'Thêm mới sản phẩm')
 @section('content')
     <form action="" method="post" enctype="multipart/form-data">
+        @csrf
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
@@ -39,13 +40,13 @@
                 </div>
                 <div class="form-group">
                     <label for="">Ảnh gallery (Chọn nhiều ảnh)</label>
-                    <input type="file" name="galleries" class="form-control" multiple>
+                    <input type="file" name="galleries[]" class="form-control" multiple>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="form-group">
                     <label for="">Mô tả ngắn</label>
-                    <textarea name="shor_desc" rows="10" class="form-control"></textarea>
+                    <textarea name="short_desc" rows="10" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="">Chi tiết </label>
