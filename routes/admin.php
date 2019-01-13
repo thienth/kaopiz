@@ -1,6 +1,7 @@
 <?php
 
 Route::get('/', "DashboardController@index")->name('dashboard');
+Route::get('/send-mail/{recciveEmail}/{subject}/{content}', "DashboardController@sendMail")->name('sendmail');
 
 Route::group(['prefix' => 'product'], function () {
     Route::get('/', "ProductController@index")->name('product.list');    
@@ -17,6 +18,8 @@ Route::group(['prefix' => 'product'], function () {
     Route::post('/remove-product-gallery', "ProductController@removeGallery")->name('product.remove-gallery');
 
 });
+
+
 
 
 

@@ -105,7 +105,6 @@ class ProductController extends Controller
         return redirect(route('product.edit', ['id' => $request->product_id]));
     }
 
-
     public function removeGallery(Request $request){
         $model = ProductGallery::find($request->id);
         $model->delete();
