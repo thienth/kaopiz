@@ -31,7 +31,13 @@
                 </div>
             </div>
             <div class="col-md-6">
-                
+                <div class="preview-img">
+                    <img src="http://lorempixel.com/800/600/sports" class="img-responsive">
+                </div>
+                <div class="form-group">
+                    <label for="">Ảnh sản phẩm <span class="text-danger">*</span></label>
+                    <input type="file" name="image" class="form-control" >
+                </div>
             </div>
         </div>
     </form>
