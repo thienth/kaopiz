@@ -70,8 +70,8 @@ class HomeController extends Controller
 		}
 	}
 
-	public function addCart($id){
-		$item = Product::find($id);
+	public function addCart(Request $request){
+		$item = Product::find($request->id);
 		if(!$item){
 			return "404 notfound!";
 		}
@@ -98,7 +98,7 @@ class HomeController extends Controller
 		}
 
 		session(['cart' => $cart]);
-		// dd(session('cart'));
-		return redirect(route('home'));   
+		
+		return response()->json(['success' => true, 'data' => $cart]);
 	}
 }
