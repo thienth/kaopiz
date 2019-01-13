@@ -8,7 +8,6 @@
                     <label for="">Tên sản phẩm <span class="text-danger">*</span></label>
                     <input type="text" name="name" class="form-control" placeholder="Tên sp">
                 </div>
-
                 <div class="form-group">
                     <label for="">Danh mục <span class="text-danger">*</span></label>
                     <select name="cate_id" class="form-control">
@@ -63,5 +62,9 @@
 
 @endsection
 @section('customjs')
-    
+    <script>
+        $(document).ready(function(){
+            $('textarea').wysihtml5();
+        })
+    </script>
 @endsection
