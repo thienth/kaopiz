@@ -53,7 +53,12 @@
                     </div>
                     <div class="col-md-6">
                         <div class="preview-img">
-                            <img id="preview" src="{{asset('images/default-image.png')}}" class="img-responsive">
+                            @if (!$model->image)
+                                <img id="preview" src="{{asset('images/default-image.png')}}" class="img-responsive">
+                            @else
+                                <img id="preview" src="{{asset($model->image)}}" class="img-responsive">
+                            @endif
+                            
                         </div>
                         <div class="form-group">
                             <label for="">Ảnh sản phẩm <span class="text-danger">*</span></label>
@@ -176,7 +181,7 @@
                             },
                             dataType: 'JSON',
                             success: function(rp){
-                                
+
                                 $('#gl_'+rp.id).remove();
                             },
                             error: function(){
