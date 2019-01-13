@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Product;
+use App\Category;
 
 class ProductController extends Controller
 {
@@ -26,5 +27,12 @@ class ProductController extends Controller
         $model = Product::find($id);
         $model->delete();
         return redirect(route('product.list'));
+    }
+
+    public function add(){
+        $model = new Product();
+        $cates = Category::all();
+
+        return view('admin.product.add', compact('model', 'cates'));
     }
 }
