@@ -31,11 +31,11 @@
             </div>
             <div class="col-md-6">
                 <div class="preview-img">
-                    <img src="{{asset('images/default-image.png')}}" class="img-responsive">
+                    <img id="preview" src="{{asset('images/default-image.png')}}" class="img-responsive">
                 </div>
                 <div class="form-group">
                     <label for="">Ảnh sản phẩm <span class="text-danger">*</span></label>
-                    <input type="file" name="image" class="form-control" >
+                    <input type="file" name="image" class="form-control" onchange="encodeImageFileAsURL(this)">
                 </div>
                 <div class="form-group">
                     <label for="">Ảnh gallery (Chọn nhiều ảnh)</label>
@@ -56,7 +56,6 @@
                     <a href="{{route('product.list')}}" class="btn btn-sm btn-danger">Hủy</a>
                 </div>
             </div>
-            
         </div>
     </form>
 
@@ -69,5 +68,15 @@
                 plugins : 'advlist autolink link image lists charmap print preview'
             });
         })
+
+        function encodeImageFileAsURL(element) {
+            var file = element.files[0];
+            var reader = new FileReader();
+            reader.onloadend = function() {
+                // console.log('RESULT', reader.result)
+                $('#preview').attr('src', reader.result);
+            }
+            reader.readAsDataURL(file);
+        }
     </script>
 @endsection
