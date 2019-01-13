@@ -9,7 +9,7 @@
 <!-- FastClick -->
 <script src="{{asset('admin-assets/bower_components/jquery/dist/jquery.min.js')}}"></script>
 <script src="{{asset('admin-assets/bower_components/fastclick/lib/fastclick.js')}}"></script>
-<script src="{{asset('admin-assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
+<script src="{{asset('admin-assets/plugins/tinymce/tinymce.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('admin-assets/dist/js/adminlte.min.js')}}"></script>
 

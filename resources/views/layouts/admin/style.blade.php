@@ -9,7 +9,6 @@
 <!-- AdminLTE Skins. Choose a skin from the css/skins
      folder instead of downloading all of them to reduce the load. -->
 <link rel="stylesheet" href="{{asset('admin-assets/dist/css/skins/_all-skins.min.css')}}">
-<link rel="stylesheet" href="{{asset('admin-assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
 <link rel="stylesheet" href="{{asset('admin-assets/css/admin-style.css')}}">
 
 

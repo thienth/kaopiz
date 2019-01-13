@@ -64,7 +64,10 @@
 @section('customjs')
     <script>
         $(document).ready(function(){
-            $('textarea').wysihtml5();
+            tinymce.init({
+                selector: 'textarea',
+                plugins : 'advlist autolink link image lists charmap print preview'
+            });
         })
     </script>
 @endsection
