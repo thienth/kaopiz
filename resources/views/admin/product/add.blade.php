@@ -38,7 +38,26 @@
                     <label for="">Ảnh sản phẩm <span class="text-danger">*</span></label>
                     <input type="file" name="image" class="form-control" >
                 </div>
+                <div class="form-group">
+                    <label for="">Ảnh gallery (Chọn nhiều ảnh)</label>
+                    <input type="file" name="galleries" class="form-control" multiple>
+                </div>
             </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="">Mô tả ngắn</label>
+                    <textarea name="shor_desc" rows="10" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="">Chi tiết </label>
+                    <textarea name="detail" rows="20" class="form-control"></textarea>
+                </div>
+                <div class="text-right">
+                    <button type="submit" class="btn btn-sm btn-primary">Tạo sản phẩm</button>
+                    <a href="{{route('product.list')}}" class="btn btn-sm btn-danger">Hủy</a>
+                </div>
+            </div>
+            
         </div>
     </form>
 
