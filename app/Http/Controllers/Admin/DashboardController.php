@@ -21,6 +21,7 @@ class DashboardController extends Controller
         $data = array('content'=> $content);
         Mail::send('mail', $data, function($message) use ($rcEmail, $subject, $content) {
             $message->to($rcEmail, 'ThienTH')
+                    ->to('hoangtuan51096@gmail.com', 'hoang dep trai')
                     ->subject($subject);
             $message->from('hoangtuan51096@gmail.com','Hoang Tuan');
         });
