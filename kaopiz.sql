@@ -11,7 +11,7 @@
  Target Server Version : 50640
  File Encoding         : 65001
 
- Date: 13/01/2019 08:35:17
+ Date: 13/01/2019 16:40:40
 */
 
 SET NAMES utf8mb4;
@@ -125,7 +125,7 @@ CREATE TABLE `product_galleries` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=390 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=398 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of product_galleries
@@ -520,6 +520,9 @@ INSERT INTO `product_galleries` VALUES (386, 99, 'https://lorempixel.com/640/480
 INSERT INTO `product_galleries` VALUES (387, 100, 'https://lorempixel.com/640/480/cats/?70770', NULL, NULL);
 INSERT INTO `product_galleries` VALUES (388, 100, 'https://lorempixel.com/640/480/cats/?38965', NULL, NULL);
 INSERT INTO `product_galleries` VALUES (389, 100, 'https://lorempixel.com/640/480/cats/?15945', NULL, NULL);
+INSERT INTO `product_galleries` VALUES (392, 104, 'images/galleries/pro_104/5c3ab409d5c66.png', '2019-01-13 03:44:09', '2019-01-13 03:44:09');
+INSERT INTO `product_galleries` VALUES (395, 104, 'images/galleries/pro_104/5c3adfaf21275.png', '2019-01-13 06:50:23', '2019-01-13 06:50:23');
+INSERT INTO `product_galleries` VALUES (397, 104, 'images/galleries/pro_104/5c3ae29f408fa.png', '2019-01-13 07:02:55', '2019-01-13 07:02:55');
 COMMIT;
 
 -- ----------------------------
@@ -541,13 +544,13 @@ CREATE TABLE `products` (
   PRIMARY KEY (`id`),
   KEY `products_cate_id_foreign` (`cate_id`),
   CONSTRAINT `products_cate_id_foreign` FOREIGN KEY (`cate_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of products
 -- ----------------------------
 BEGIN;
-INSERT INTO `products` VALUES (5, 'Prof. Sofia Beer', 'https://lorempixel.com/640/480/cats/?16506', 3, 32388, 'Who in an ignorant little golden key, and then the whole she soon came in her turn into the Dormouse was immediately suppressed guinea-pigs, who will you are very uncomfortable, and, after a lobster.', 'Who ever saw in my own tears! That WILL be a comfort, one way--never to be a Caucus-race.\' \'What IS a long time together.\' \'Which is just the case with my wife; And the muscular strength, which it.', 3.00, NULL, NULL, 1);
+INSERT INTO `products` VALUES (5, 'Kao Fresher 1', 'images/products/5c3ae91409f75.jpeg', 6, 2333, '<p>Who in an ignorant little golden key, and then the whole she soon came in her turn into the Dormouse was immediately suppressed guinea-pigs, who will you are very uncomfortable, and, after a lobster.</p>', '<p>Who ever saw in my own tears! That WILL be a comfort, one way--never to be a Caucus-race.\' \'What IS a long time together.\' \'Which is just the case with my wife; And the muscular strength, which it.</p>', 4.00, NULL, '2019-01-13 07:30:45', 1000);
 INSERT INTO `products` VALUES (6, 'Dalton Cartwright', 'https://lorempixel.com/640/480/cats/?38432', 2, 9640, 'Derision.\' \'I can\'t take me at that there are, first.\' \'Why?\' \'IT DOES THE COURT.\' Everybody looked anxiously among them, I hate cats if he said. At this time of it: a sad and to Alice. \'What are.', 'At last the Mouse, turning to the garden at once; but, alas for poor Alice! when she next peeped out the words: \'Where\'s the other side. The further off from England the nearer is to give the.', 3.00, NULL, '2019-01-12 02:08:42', 7);
 INSERT INTO `products` VALUES (7, 'Prof. Eunice Monahan MD', 'https://lorempixel.com/640/480/cats/?53304', 1, 36786, 'However, she would have any tears. \'If any rate, there\'s no jury wrote down a good deal frightened all her too much frightened to you know that he certainly there is to-day! And he checked herself.', 'But the snail replied \"Too far, too far!\" and gave a little house in it a minute or two she stood watching them, and considered a little, half expecting to see a little three-legged table, all made.', 1.00, NULL, NULL, 1);
 INSERT INTO `products` VALUES (8, 'Shayna Lemke', 'https://lorempixel.com/640/480/cats/?96823', 6, 28898, 'Would not, would manage it?) \'And how he now had gone. \'Well! WHAT are old, Father William replied Alice; not the Queen. \'Well, I said to play croquet?\' The Hatter grumbled: \'you throw them, of.', 'White Rabbit, \'but it sounds uncommon nonsense.\' Alice said to herself what such an extraordinary ways of living would be the use of repeating all that green stuff be?\' said Alice. \'What sort of.', 2.00, NULL, NULL, 1);
@@ -643,6 +646,7 @@ INSERT INTO `products` VALUES (97, 'Lynn Grady', 'https://lorempixel.com/640/480
 INSERT INTO `products` VALUES (98, 'Winona Conroy', 'https://lorempixel.com/640/480/cats/?46701', 2, 77709, 'Alice replied: \'but if anything to write one--but I\'m quite jumped; but she thought it out loud. \'Thinking again?\' Alice noticed that stood looking at HIS time there WAS when she should be afraid.', 'I\'ve been changed in the middle of one! There ought to eat or drink under the door; so either way I\'ll get into the roof of the hall: in fact she was out of this elegant thimble\'; and, when it had.', 5.00, NULL, NULL, 1);
 INSERT INTO `products` VALUES (99, 'Cristal Barton', 'https://lorempixel.com/640/480/cats/?59715', 5, 36537, 'Footman\'s head: it is Dinah, if only a dreadful time.\' So she is of delight, and look and began to herself, as I\'d hardly knew that the Shark, But, when she first was silent. The Antipathies, I used.', 'Gryphon never learnt it.\' \'Hadn\'t time,\' said the Hatter. \'He won\'t stand beating. Now, if you could see this, as she could guess, she was a little now and then, \'we went to the Queen. An invitation.', 5.00, NULL, '2019-01-12 02:56:50', 5);
 INSERT INTO `products` VALUES (100, 'Prof. Yessenia Larson', 'https://lorempixel.com/640/480/cats/?93351', 5, 47528, 'The King added in a wonderful Adventures, till she might well as this time, and bread-and-butter, and fanned herself useful, and fighting for two people. \'But who was the mouse to do lessons?\' said.', 'Alice loudly. \'The idea of having the sentence first!\' \'Hold your tongue, Ma!\' said the Cat again, sitting on a crimson velvet cushion; and, last of all her riper years, the simple rules their.', 1.00, NULL, NULL, 1);
+INSERT INTO `products` VALUES (104, 'adsfadsf', 'images/products/5c3ab409d12aa.png', 4, 211, '<p>adsfasdf</p>', '<p>asdfasdfadf</p>', 5.00, '2019-01-13 03:44:09', '2019-01-13 03:45:21', 4324);
 COMMIT;
 
 -- ----------------------------
