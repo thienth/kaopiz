@@ -12,6 +12,10 @@ Route::group(['prefix' => 'product'], function () {
     
     Route::get('/edit/{id}', "ProductController@edit")->name('product.edit');    
     Route::post('/edit/{id}', "ProductController@postEdit");
+
+    Route::post('/upload-product-gallery', "ProductController@uploadGallery")->name('product.upload-gallery');
+    Route::post('/remove-product-gallery', "ProductController@removeGallery")->name('product.remove-gallery');
+
 });
 
 

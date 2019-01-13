@@ -70,7 +70,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="">Mô tả ngắn</label>
-                            <textarea name="short_desc" rows="10" class="form-control">{!!old('short_desc', $model->short_desc)!!}</textarea>
+                            <textarea name="short_desc" rows="10" class="form-control">{!! old('short_desc', $model->short_desc)!!}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="">Chi tiết </label>
@@ -91,13 +91,13 @@
                     <th>Ảnh</th>
                     <th>URL</th>
                     <th>
-                        <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-default">
-                                Thêm ảnh
-                                </button>
+                        <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-add">
+                            Thêm ảnh
+                        </button>
                     </th>
                 </tr>
                 @foreach ($galleries as $item)
-                    <tr>
+                    <tr id="gl_{{$item->id}}">
                         <td>{{$loop->iteration}}</td>
                         <td>
                             <img src="{{asset($item->img_url)}}" width="100">
@@ -106,7 +106,7 @@
                             {{asset($item->img_url)}}
                         </td>
                         <td>
-                            <a href="" class="btn btn-sm btn-danger">Xóa</a>
+                            <a href="javascript:;" gallery_id="{{$item->id}}" class="btn btn-sm btn-danger btn-gallery-remove">Xóa</a>
                         </td>
                     </tr>
                 @endforeach
@@ -115,29 +115,32 @@
     </div>
 </div>
 
-<div class="modal fade" id="modal-default" style="display: none;">
+<div class="modal fade" id="modal-add" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span></button>
-            <h4 class="modal-title">Thêm ảnh</h4>
-        </div>
-        <div class="modal-body">
-            <form action="" method="post" enctype="multipart/form-data">
-                <div class="preview-img">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Thêm ảnh</h4>
+            </div>
+            <form action="{{route('product.upload-gallery')}}" method="post" enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" name="product_id" value="{{$model->id}}">
+                <div class="modal-body">
+                    <div class="preview-img">
                         <img id="modal-preview" src="{{asset('images/default-image.png')}}" class="img-responsive">
                     </div>
                     <div class="form-group">
                         <label for="">Ảnh gallery <span class="text-danger">*</span></label>
-                        <input type="file" name="image" class="form-control" onchange="encodeImageFileAsURL(this, 'modal-preview')">
+                        <input type="file" name="imageGallery" class="form-control" onchange="encodeImageFileAsURL(this, 'modal-preview')">
                     </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
             </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
         </div>
         <!-- /.modal-content -->
     </div>
@@ -150,6 +153,38 @@
             tinymce.init({
                 selector: 'textarea',
                 plugins : 'advlist autolink link image lists charmap print preview'
+            });
+
+            $('.btn-gallery-remove').on('click', function(){
+                var galleryId = $(this).attr('gallery_id');
+                Swal({
+                        title: 'Bạn có chắc chắn muốn xóa ?',
+                        type: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Đồng ý'
+                })
+                .then((result) => {
+                    if (result.value) {
+                        $.ajax({
+                            url: '{{route('product.remove-gallery')}}',
+                            method: 'POST',
+                            data: {
+                                id: galleryId,
+                                _token: '{{ csrf_token() }}'
+                            },
+                            dataType: 'JSON',
+                            success: function(rp){
+                                
+                                $('#gl_'+rp.id).remove();
+                            },
+                            error: function(){
+                                console.log('error');
+                            }
+                        });
+                    }
+                })
             });
         })
 

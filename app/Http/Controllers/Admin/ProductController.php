@@ -76,8 +76,25 @@ class ProductController extends Controller
         }
         return redirect(route('product.list'));
     }
+    public function postEdit($id, Request $request){}
 
-    public function postEdit($id, SaveProductRequest $request){
+    public function uploadGallery(Request $request){
+        $model = new ProductGallery();
+        $model->product_id = $request->product_id;
+        // dat ten cho anh
+        $filename = uniqid(). "." . $request->imageGallery->extension();
+        // luu anh voi ten vua tao ra
+        $path = $request->imageGallery->storeAs('images/galleries/pro_' . $request->product_id, $filename);
+        $model->img_url = $path;
+        $model->save();
 
+        return redirect(route('product.edit', ['id' => $request->product_id]));
+    }
+
+
+    public function removeGallery(Request $request){
+        $model = ProductGallery::find($request->id);
+        $model->delete();
+        return response()->json(['success' => true, 'id' => $request->id]);
     }
 }
