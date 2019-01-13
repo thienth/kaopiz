@@ -1,6 +1,10 @@
 @extends('layouts.admin.master')
 @section('title', 'Thêm mới sản phẩm')
 @section('content')
+@php
+    $defaultImg = $model->image == null ? asset('images/default-image.png') : $model->image;
+@endphp
+<input type="hidden" value="{{asset($defaultImg)}}" id="defaultImage">
 <div>
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#main-info">Thông tin chung</a></li>
@@ -53,11 +57,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="preview-img">
-                            @if (!$model->image)
-                                <img id="preview" src="{{asset('images/default-image.png')}}" class="img-responsive">
-                            @else
-                                <img id="preview" src="{{asset($model->image)}}" class="img-responsive">
-                            @endif
+                           
+                            <img id="preview" src="{{asset($defaultImg)}}" class="img-responsive">
                             
                         </div>
                         <div class="form-group">
@@ -151,6 +152,7 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
+
 @endsection
 @section('customjs')
     <script>
@@ -195,6 +197,10 @@
 
         function encodeImageFileAsURL(element, deploySelector) {
             var file = element.files[0];
+            if(file == undefined){
+                $('#' + deploySelector).attr('src', $('#defaultImage').val());
+                return false;
+            }
             var reader = new FileReader();
             reader.onloadend = function() {
                 // console.log('RESULT', reader.result)
