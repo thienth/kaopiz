@@ -11,7 +11,7 @@ Route::group(['prefix' => 'product'], function () {
     Route::post('/add', "ProductController@postAdd");
     
     Route::get('/edit/{id}', "ProductController@edit")->name('product.edit');    
-    Route::post('/edit/{id}', "ProductController@postEdit");
+    Route::post('/save-update', "ProductController@postEdit")->name('product.save-edit');
 
     Route::post('/upload-product-gallery', "ProductController@uploadGallery")->name('product.upload-gallery');
     Route::post('/remove-product-gallery', "ProductController@removeGallery")->name('product.remove-gallery');
