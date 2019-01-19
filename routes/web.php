@@ -27,3 +27,32 @@ Route::post('cp-login', "HomeController@cpPostLogin");
 
 // dang xuat
 Route::any('logout', "HomeController@logout")->name('logout');
+
+
+Route::get('test-ajax', function (){
+        return view('ajax');
+});
+
+Route::post('check-middleware', function(){
+        return "Hello Holla!";
+})->middleware(['checkAdult', 'auth'])->name('post-middle');
+
+Route::group(['middleware' => ['checkAdult', 'auth'], 'prefix' => 'xxx'], function(){
+
+});
+use App\Product;
+use Illuminate\Http\Request;
+Route::post('post-test-ajax', function (Request $request){
+        $count = Product::where('name', $request->product_name)->count();
+        $msg = $count >= 1 ? "Tên sản phẩm đã tồn tại, vui lòng chọn tên khác" : "";
+        return response()->json([
+                "success" => $count == 0,
+                "msg" => $msg
+        ]);
+})->name('postajax');
+
+use App\Invoice;
+Route::get('relate', function () {
+    $invoice = Product::find(8);
+    dd($invoice->invoices);
+});

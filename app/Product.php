@@ -14,12 +14,15 @@ class Product extends Model
 
     public function category()
     {
-        return $this->belongsTo('App\Category', 'cate_id');
+        return $this->belongsTo('App\Category', 'cate_id', 'id');
     }
 
     public function galleries()
     {
         return $this->hasMany('App\ProductGallery', 'product_id', 'id');
+    }
+    public function invoices(){
+        return $this->belongsToMany('App\Invoice', 'invoice_detail', 'product_id', 'invoice_id');
     }
 
     public function relates(){
